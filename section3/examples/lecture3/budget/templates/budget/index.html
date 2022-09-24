@@ -1,0 +1,21 @@
+{% extends "budget/layout.html" %}
+{% block body %}
+    <h1>Categories</h1>
+
+    <ul>
+        {% for category in categories %}
+            <li>{{ category }}</li>
+        {% empty %}
+            <li>No categories.</li>
+        {% endfor %}
+    </ul>
+
+    
+
+    <a href="{% url 'budget:add' %}">Add New Categories</a>
+
+    <br/><br/><br/>
+
+    {{ html_string_abc | safe}}
+
+{% endblock %}
