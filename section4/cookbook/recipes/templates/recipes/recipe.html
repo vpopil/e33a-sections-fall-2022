@@ -1,0 +1,37 @@
+{% extends "recipes/base.html" %}
+
+{% block title %}
+    Recipe {{ recipe.id }}
+{% endblock %}
+
+{% block body %}
+    <ul>
+        <li>Recipe Number: {{ recipe.name }}</li>
+        <li>Category: {{ recipe.category }}</li>
+        <li>
+            Ingredients:
+            <ul>
+                {% for ingredient in ingredients %}
+                    <li>{{ ingredient }}  -----  {{ ingredient.ten_x_the_price }}</li> 
+                {% empty %}
+                    <li>No ingredients</li>
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
+    {% if non_ingredients%}
+        <h2>Add an Ingredient</h2>
+        <form action="{% url 'add' recipe.id %}" method="post">
+            {% csrf_token %}
+            <select name="ingredient">
+                {% for non_ingredient in non_ingredients %}
+                    <option value="{{ non_ingredient.id }}">{{ non_ingredient }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Add Ingredient !!!!!~~~~~" />
+        </form>
+    {% else %}
+        <div>No ingredients to add.</div>
+    {% endif %}
+    <a href="{% url 'index' %}">Back to full listing.</a>
+{% endblock %}

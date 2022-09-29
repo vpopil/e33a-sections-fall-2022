@@ -1,0 +1,16 @@
+{% extends "recipes/base.html" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block body %}
+    <h1>Error</h1>
+
+    {{ message }}
+
+    <hr>
+
+    <a href="{% url 'index' %}">Return to recipes.</a>
+
+{% endblock %}
