@@ -1,0 +1,74 @@
+<!-- example of building button in js -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              document.querySelector('#new-button').onsubmit = () => {
+                
+                event.preventDefault();
+
+                // create li and button
+                const li = document.createElement('li');
+                const btn = document.createElement('button');
+                
+
+                // Assigns three times
+                // btn.addEventListener('click', () => {alert("Button Clicked #1");});
+                // btn.addEventListener('click', () => {alert("Button Clicked #2");});
+                // btn.addEventListener('click', () => {alert("Button Clicked #3");});
+
+                // btn.onclick = function() {alert("Button Clicked #1");};
+                // btn.onclick = function() {alert("Button Clicked #2");};
+                // btn.onclick = function() {alert("Button Clicked #3");};
+
+
+                //foo.innerHTML = ` To: `{}    <br>  From`  -DONT" PUT TOO MUCH HTML INTO JS
+                
+                /* TAKEAWAYS
+
+                  1) Recreate the button every time (new button)
+                  2) use .onclick = ____
+                  3) E.G. archive() i.e do not pass email at all , can use GLOBAL var.
+                */
+              
+
+
+                // set class(es) of button
+                btn.classList.add('btn','btn-dark');
+
+                // set button label
+                btn.innerHTML = document.querySelector('#button-text').value;
+
+                // add button to the list item
+                // NOTE this could potentially be just set innerHTMLßßß
+                li.append(btn)
+
+                // append list item to the list
+                document.querySelector('#buttons').append(li);
+
+
+                // return false;
+                
+              }
+
+            });
+        </script>
+        <title>Create buttons</title>
+    </head>
+    <body>
+      <ul style="list-style-type:none" id="buttons">
+      </ul>
+      <form id="new-button">
+          <input id="button-text" autocomplete="off" autofocus placeholder="New Button Name" type="text">
+          <input id="submit" type="submit">
+      </form>
+
+    </body>
+</html>

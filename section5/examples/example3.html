@@ -1,0 +1,58 @@
+<!-- this is example of local storage to remember user -->
+
+<!-- PLEASE NOTE some code could be refactored  -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+
+            // create local storage item if doen't exist
+            if (!localStorage.getItem('username'))
+                localStorage.setItem('username', '');
+
+            document.addEventListener('DOMContentLoaded', () => {
+
+                // getch name from local storage
+                document.querySelector('#loggedUser').innerHTML = localStorage.getItem('username');
+
+
+                // login
+                document.querySelector('#login').onclick = () => {
+
+                    // get value from input
+                    let username = document.querySelector('#username').value;
+                    // update label
+                    document.querySelector('#loggedUser').innerHTML = username;
+
+                    // update local storage
+                    localStorage.setItem('username', username);
+                }
+
+
+                // logout
+                document.querySelector('#logout').onclick = () => {
+                  // flush value
+                    username = '';
+
+                      // update label
+                    document.querySelector('#loggedUser').innerHTML = username;
+                      // update local storage
+                    localStorage.setItem('username', username);
+                }
+            });
+
+        </script>
+        <title>My Website</title>
+    </head>
+    <body>
+        <h1>Welcome:</h1>
+        <h1 id="loggedUser"></h1>
+
+
+        <input id="username" autocomplete="off" autofocus placeholder="username" type="text">
+        <input id="login" type="submit" value="Login">
+        <input id="logout" type="submit" value="Logout">
+
+    </body>
+</html>

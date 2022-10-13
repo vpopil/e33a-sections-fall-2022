@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector('#form').onsubmit = function() {
+                    event.preventDefault(); // BEING DEPRECATED?
+
+                    const x = parseInt(document.querySelector('#x').value);
+                    const y = parseInt(document.querySelector('#y').value);
+
+                    // x += 1 // This fails may need to do `let` on x
+
+                    const z = x + y; 
+                    alert(`Total is ${z}!`);
+
+                    //return false;
+                };
+            });
+        </script>
+
+        <title>My simple calc</title>
+    </head>
+    <body>
+        <form id="form">
+            <input id="x" autocomplete="off" autofocus placeholder="x" type="number">
+            <input id="y" autocomplete="off" autofocus placeholder="y" type="number">
+            <input type="submit" value="add">
+        </form>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- string parseInt() -->

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="{{ url_for('static', filename='index.js') }}"></script>
+        <title>Fetching Options</title>
+    </head>
+    <body>
+        <form id="form">
+            <input type="submit" value="Load Options Into dropdown">
+        </form>
+        <br>
+        <div id="result"></div>
+
+
+        <select class="form-control" id="opts" name="class-options">
+        </select>
+    </body>
+</html>
